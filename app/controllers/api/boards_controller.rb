@@ -9,7 +9,7 @@ class Api::BoardsController < ApplicationController
 
   rescue ActiveRecord::RecordNotFound
     @error = "Invalid board data provided"
-    render 'api/shared/error', status: :unprocessable_entity
+    render 'api/shared/error', status: 404
   end
 
   def create

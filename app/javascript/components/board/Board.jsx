@@ -2,28 +2,7 @@ import React from 'react';
 
 function Board(props) {
   return (
-    <nav>
-    <ul>
-        <li class="boards trello-icon icon"><span>Boards</span>
-        </li><li class="search-container">
-            <div class="search search-icon icon"></div>
-            <div class="active-search">
-                <div>
-                    <input type="text" />
-                </div><i class="x-icon icon"></i><i class="goto-icon icon"></i>
-            </div>
-        </li>
-    </ul>
-    <h1>Trello</h1>
-    <ul class="user-info">
-        <li class="create-icon icon"></li>
-        <li class="split-button-1">VR</li>
-        <li class="split-button-2">Victor Reyes</li>
-        <li class="info-icon icon"></li>
-        <li class="notifications-icon icon"></li>
-    </ul>
-</nav>
-
+    <React.Fragment>
 <header>
   <ul>
     <li id="title">My Title</li>
@@ -249,6 +228,8 @@ function Board(props) {
 </div>
 <div id="modal-container"></div>
 <div id="dropdown-container"></div>
-
+    </React.Fragment>
   )
 }
+
+export default Board

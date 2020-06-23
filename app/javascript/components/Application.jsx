@@ -9,7 +9,7 @@ const Application = () => {
   return (
     <div>
       <TopNav />
-      {/* <Route path="/boards/:id" exact component={Board} /> */}
+      <Route path="/boards/:id" exact component={Board} />
       <Route path="/" exact component={BoardsDashboardContainer} />
     </div>
   );
