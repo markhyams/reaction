@@ -2566,3 +2566,450 @@ Processing by Api::BoardsController#show as JSON
 Completed 200 OK in 263ms (Views: 234.8ms | ActiveRecord: 9.3ms | Allocations: 22537)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Destroy (1.3ms)[0m  [1m[31mDELETE FROM "boards" WHERE "boards"."id" = $1[0m  [["id", 2]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Destroy (0.7ms)[0m  [1m[31mDELETE FROM "boards" WHERE "boards"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mList Destroy (1.0ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = $1[0m  [["id", 1]]
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Destroy (0.8ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 1]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (3.0ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "First board"], ["created_at", "2020-06-23 18:11:32.812352"], ["updated_at", "2020-06-23 18:11:32.812352"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mList Create (1.1ms)[0m  [1m[32mINSERT INTO "lists" ("title", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "First List"], ["board_id", 4], ["created_at", "2020-06-23 18:11:32.846344"], ["updated_at", "2020-06-23 18:11:32.846344"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mList Create (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Second List"], ["board_id", 4], ["created_at", "2020-06-23 18:11:32.865849"], ["updated_at", "2020-06-23 18:11:32.865849"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.9ms)[0m  [1m[32mINSERT INTO "cards" ("labels", "title", "description", "created_at", "updated_at", "list_id", "due_date") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["labels", "{red,blue,green}"], ["title", "First Card"], ["description", "Hello Card"], ["created_at", "2020-06-23 18:11:32.875987"], ["updated_at", "2020-06-23 18:11:32.875987"], ["list_id", 2], ["due_date", "2020-06-24"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("labels", "title", "description", "created_at", "updated_at", "list_id", "due_date") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["labels", "{green}"], ["title", "Second Card"], ["description", "Another Card"], ["created_at", "2020-06-23 18:11:32.893105"], ["updated_at", "2020-06-23 18:11:32.893105"], ["list_id", 2], ["due_date", "2020-06-25"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("labels", "title", "description", "created_at", "updated_at", "list_id", "due_date") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["labels", "{blue,green,purple}"], ["title", "Third Card"], ["description", "My Card"], ["created_at", "2020-06-23 18:11:32.901622"], ["updated_at", "2020-06-23 18:11:32.901622"], ["list_id", 3], ["due_date", "2020-06-25"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("labels", "title", "description", "created_at", "updated_at", "list_id", "due_date") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["labels", "{blue,green}"], ["title", "Fourth Card"], ["description", "Your Card"], ["created_at", "2020-06-23 18:11:32.913061"], ["updated_at", "2020-06-23 18:11:32.913061"], ["list_id", 3], ["due_date", "2020-06-26"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("labels", "title", "description", "created_at", "updated_at", "list_id", "due_date") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["labels", "{blue,green,black}"], ["title", "Fifth Card"], ["description", "Everybody's Card"], ["created_at", "2020-06-23 18:11:32.930957"], ["updated_at", "2020-06-23 18:11:32.930957"], ["list_id", 3], ["due_date", "2020-06-27"]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/ui" for ::1 at 2020-06-23 12:16:12 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UiController#index as HTML
+  Rendering ui/index.html.erb within layouts/static
+  Rendered ui/index.html.erb within layouts/static (Duration: 54.6ms | Allocations: 1493)
+Started GET "/ui/single_board.html" for ::1 at 2020-06-23 12:16:24 -0600
+Processing by UiController#single_board as HTML
+  Rendering ui/single_board.html.erb within layouts/static
+  Rendered ui/single_board.html.erb within layouts/static (Duration: 26.6ms | Allocations: 549)
+Completed 200 OK in 235118ms (Views: 235085.9ms | ActiveRecord: 0.0ms | Allocations: 3097646)
+
+
+Completed 200 OK in 226201ms (Views: 226186.3ms | ActiveRecord: 0.0ms | Allocations: 2792470)
+
+
+Started GET "/images/admin-badge.png" for ::1 at 2020-06-23 12:20:10 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/images/admin-badge.png"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-06-23 12:21:04 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 75)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 678ms (Views: 667.6ms | ActiveRecord: 0.0ms | Allocations: 9376)
+
+
+Started GET "/api/boards" for ::1 at 2020-06-23 12:21:06 -0600
+Processing by Api::BoardsController#index as JSON
+  Rendering api/boards/index.json.jbuilder
+  [1m[36mBoard Load (2.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/api/boards/index.json.jbuilder:1
+  Rendered api/boards/index.json.jbuilder (Duration: 67.9ms | Allocations: 3800)
+Completed 200 OK in 330ms (Views: 126.0ms | ActiveRecord: 18.6ms | Allocations: 6609)
+
+
+Started GET "/ui/create_board.html" for ::1 at 2020-06-23 12:24:56 -0600
+Processing by UiController#create_board as HTML
+  Rendering ui/create_board.html.erb within layouts/static
+  Rendered ui/create_board.html.erb within layouts/static (Duration: 9.7ms | Allocations: 106)
+Completed 200 OK in 426ms (Views: 408.5ms | ActiveRecord: 0.0ms | Allocations: 11692)
+
+
+Started GET "/ui/all_boards.html" for ::1 at 2020-06-23 12:25:37 -0600
+Processing by UiController#all_boards as HTML
+  Rendering ui/all_boards.html.erb within layouts/static
+  Rendered ui/all_boards.html.erb within layouts/static (Duration: 19.6ms | Allocations: 153)
+Completed 200 OK in 474ms (Views: 465.0ms | ActiveRecord: 0.0ms | Allocations: 11745)
+
+
+Started GET "/api/boards/2.json" for ::1 at 2020-06-23 12:30:04 -0600
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:8:in `show'
+  Rendering api/shared/error.json.jbuilder
+  Rendered api/shared/error.json.jbuilder (Duration: 9.9ms | Allocations: 101)
+Completed 422 Unprocessable Entity in 113ms (Views: 33.8ms | ActiveRecord: 1.0ms | Allocations: 3619)
+
+
+Started GET "/api/boards/2" for ::1 at 2020-06-23 12:30:18 -0600
+Processing by Api::BoardsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:8:in `show'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms | Allocations: 1857)
+
+
+  
+ActionView::MissingTemplate (Missing template api/shared/error with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/app/views"
+  * "/home/marktrumpet/.rvm/gems/ruby-2.6.1/gems/actiontext-6.0.3.2/app/views"
+  * "/home/marktrumpet/.rvm/gems/ruby-2.6.1/gems/actionmailbox-6.0.3.2/app/views"
+):
+  
+app/controllers/api/boards_controller.rb:12:in `rescue in show'
+app/controllers/api/boards_controller.rb:7:in `show'
+Started GET "/boards/2" for ::1 at 2020-06-23 12:30:29 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/boards/2"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-06-23 12:30:38 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: a6822042a281b6769223
+Version: webpack 4.43.0
+Time: 39712ms
+Built at: 06/23/2020 12:31:40 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-936f0560c6facc9bef3c.js    1.8 MiB  application  [emitted] [immutable]  application
+js/application-936f0560c6facc9bef3c.js.map   1.97 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-936f0560c6facc9bef3c.js js/application-936f0560c6facc9bef3c.js.map
+[./app/javascript/actions/BoardActions.js] 1020 bytes {application} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/constants/ActionTypes.js] 231 bytes {application} [built]
+[./app/javascript/constants/ApiRoutes.js] 89 bytes {application} [built]
+[./app/javascript/lib/ApiClient.js] 909 bytes {application} [built]
+[./app/javascript/lib/Store.js] 221 bytes {application} [built]
+[./app/javascript/packs/application.js] 1.91 KiB {application} [built]
+[./app/javascript/reducers/boards.js] 417 bytes {application} [built]
+[./app/javascript/reducers/rootReducer.js] 156 bytes {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {application} [built]
+[./node_modules/webpack/buildin/harmony-module.js] (webpack)/buildin/harmony-module.js 631 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 98 hidden modules
+
+ERROR in ./app/javascript/components/board/Board.jsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/app/javascript/components/board/Board.jsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (27:0)
+
+  25 | </nav>
+  26 | 
+> 27 | <header>
+     | ^
+  28 |   <ul>
+  29 |     <li id="title">My Title</li>
+  30 |     <li class="star-icon icon"></li>
+    at Object._raise (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:754:17)
+    at Object.raiseWithData (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:747:17)
+    at Object.raise (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:741:17)
+    at Object.jsxParseElementAt (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:4636:18)
+    at Object.jsxParseElement (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:4646:17)
+    at Object.parseExprAtom (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:4653:19)
+    at Object.parseExprSubscripts (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9693:23)
+    at Object.parseMaybeUnary (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9673:21)
+    at Object.parseExprOps (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9543:23)
+    at Object.parseMaybeConditional (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9516:23)
+    at Object.parseMaybeAssign (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9471:21)
+    at Object.parseParenAndDistinguishExpression (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:10304:28)
+    at Object.parseExprAtom (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:10044:21)
+    at Object.parseExprAtom (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:4658:20)
+    at Object.parseExprSubscripts (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9693:23)
+    at Object.parseMaybeUnary (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9673:21)
+    at Object.parseExprOps (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9543:23)
+    at Object.parseMaybeConditional (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9516:23)
+    at Object.parseMaybeAssign (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9471:21)
+    at Object.parseExpression (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9423:23)
+    at Object.parseReturnStatement (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11560:28)
+    at Object.parseStatementContent (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11241:21)
+    at Object.parseStatement (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11193:17)
+    at Object.parseBlockOrModuleBlockBody (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11768:25)
+    at Object.parseBlockBody (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11754:10)
+    at Object.parseBlock (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11738:10)
+    at Object.parseFunctionBody (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:10745:24)
+    at Object.parseFunctionBodyAndFinish (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:10728:10)
+    at /mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11908:12
+    at Object.withTopicForbiddingContext (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11068:14)
+ @ ./app/javascript/components/Application.jsx 9:0-34 29:15-20
+ @ ./app/javascript/packs/application.js
+
+ERROR in ./app/javascript/components/Application.jsx
+Module not found: Error: Can't resolve './board/BoardContainer' in '/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/app/javascript/components'
+ @ ./app/javascript/components/Application.jsx 8:0-52
+ @ ./app/javascript/packs/application.js
+
+Completed 200 OK in 62223ms (Views: 62220.8ms | ActiveRecord: 0.0ms | Allocations: 10021)
+
+
+Started GET "/" for ::1 at 2020-06-23 12:32:23 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: ba452ae1752ec7bbc16c
+Version: webpack 4.43.0
+Time: 36195ms
+Built at: 06/23/2020 12:33:19 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-09ccb7dd5cf89b7077b7.js    1.8 MiB  application  [emitted] [immutable]  application
+js/application-09ccb7dd5cf89b7077b7.js.map   1.97 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-09ccb7dd5cf89b7077b7.js js/application-09ccb7dd5cf89b7077b7.js.map
+[./app/javascript/actions/BoardActions.js] 1020 bytes {application} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/constants/ActionTypes.js] 231 bytes {application} [built]
+[./app/javascript/constants/ApiRoutes.js] 89 bytes {application} [built]
+[./app/javascript/lib/ApiClient.js] 909 bytes {application} [built]
+[./app/javascript/lib/Store.js] 221 bytes {application} [built]
+[./app/javascript/packs/application.js] 1.91 KiB {application} [built]
+[./app/javascript/reducers/boards.js] 417 bytes {application} [built]
+[./app/javascript/reducers/rootReducer.js] 156 bytes {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {application} [built]
+[./node_modules/webpack/buildin/harmony-module.js] (webpack)/buildin/harmony-module.js 631 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 98 hidden modules
+
+ERROR in ./app/javascript/components/board/Board.jsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/app/javascript/components/board/Board.jsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (27:0)
+
+  25 | </nav>
+  26 | 
+> 27 | <header>
+     | ^
+  28 |   <ul>
+  29 |     <li id="title">My Title</li>
+  30 |     <li class="star-icon icon"></li>
+    at Object._raise (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:754:17)
+    at Object.raiseWithData (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:747:17)
+    at Object.raise (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:741:17)
+    at Object.jsxParseElementAt (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:4636:18)
+    at Object.jsxParseElement (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:4646:17)
+    at Object.parseExprAtom (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:4653:19)
+    at Object.parseExprSubscripts (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9693:23)
+    at Object.parseMaybeUnary (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9673:21)
+    at Object.parseExprOps (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9543:23)
+    at Object.parseMaybeConditional (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9516:23)
+    at Object.parseMaybeAssign (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9471:21)
+    at Object.parseParenAndDistinguishExpression (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:10304:28)
+    at Object.parseExprAtom (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:10044:21)
+    at Object.parseExprAtom (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:4658:20)
+    at Object.parseExprSubscripts (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9693:23)
+    at Object.parseMaybeUnary (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9673:21)
+    at Object.parseExprOps (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9543:23)
+    at Object.parseMaybeConditional (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9516:23)
+    at Object.parseMaybeAssign (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9471:21)
+    at Object.parseExpression (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:9423:23)
+    at Object.parseReturnStatement (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11560:28)
+    at Object.parseStatementContent (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11241:21)
+    at Object.parseStatement (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11193:17)
+    at Object.parseBlockOrModuleBlockBody (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11768:25)
+    at Object.parseBlockBody (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11754:10)
+    at Object.parseBlock (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11738:10)
+    at Object.parseFunctionBody (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:10745:24)
+    at Object.parseFunctionBodyAndFinish (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:10728:10)
+    at /mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11908:12
+    at Object.withTopicForbiddingContext (/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/node_modules/@babel/parser/lib/index.js:11068:14)
+ @ ./app/javascript/components/Application.jsx 9:0-34 29:15-20
+ @ ./app/javascript/packs/application.js
+
+Completed 200 OK in 56064ms (Views: 56062.8ms | ActiveRecord: 0.0ms | Allocations: 9971)
+
+
+Started GET "/" for ::1 at 2020-06-23 12:36:18 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 209)
+Started GET "/ap/boards" for ::1 at 2020-06-23 12:37:47 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/ap/boards"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/boards" for ::1 at 2020-06-23 12:38:00 -0600
+Processing by Api::BoardsController#index as HTML
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.0ms | Allocations: 2742)
+
+
+  
+ActionView::MissingTemplate (Missing template api/boards/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/mnt/c/users/skynet/desktop/launch-school/capstone/team-shared/reaction_boilerplate/app/views"
+  * "/home/marktrumpet/.rvm/gems/ruby-2.6.1/gems/actiontext-6.0.3.2/app/views"
+  * "/home/marktrumpet/.rvm/gems/ruby-2.6.1/gems/actionmailbox-6.0.3.2/app/views"
+):
+  
+app/controllers/api/boards_controller.rb:4:in `index'
+Started GET "/api/boards/2.json" for ::1 at 2020-06-23 12:38:15 -0600
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:8:in `show'
+  Rendering api/shared/error.json.jbuilder
+  Rendered api/shared/error.json.jbuilder (Duration: 9.4ms | Allocations: 109)
+Completed 422 Unprocessable Entity in 83ms (Views: 58.8ms | ActiveRecord: 9.2ms | Allocations: 3562)
+
+
+Started GET "/api/boards/3.json" for ::1 at 2020-06-23 12:38:37 -0600
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:8:in `show'
+  Rendering api/shared/error.json.jbuilder
+  Rendered api/shared/error.json.jbuilder (Duration: 0.2ms | Allocations: 39)
+Completed 422 Unprocessable Entity in 16ms (Views: 2.4ms | ActiveRecord: 0.8ms | Allocations: 1401)
+
+
+Started GET "/api/boards.json" for ::1 at 2020-06-23 12:39:02 -0600
+Processing by Api::BoardsController#index as JSON
+  Rendering api/boards/index.json.jbuilder
+  [1m[36mBoard Load (1.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/api/boards/index.json.jbuilder:1
+  Rendered api/boards/index.json.jbuilder (Duration: 19.4ms | Allocations: 3300)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 1.3ms | Allocations: 4022)
+
+
+Started GET "/api/boards/4.json" for ::1 at 2020-06-23 12:39:24 -0600
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:8:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 4]]
+  ↳ app/views/api/boards/show.json.jbuilder:5
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1[0m  [["list_id", 2]]
+  ↳ app/views/api/boards/show.json.jbuilder:8
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1[0m  [["list_id", 3]]
+  ↳ app/views/api/boards/show.json.jbuilder:8
+  Rendered api/boards/show.json.jbuilder (Duration: 225.7ms | Allocations: 21132)
+Completed 200 OK in 243ms (Views: 217.2ms | ActiveRecord: 11.5ms | Allocations: 22505)
+
+
+Started GET "/" for ::1 at 2020-06-23 12:39:49 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+Completed 200 OK in 215914ms (Views: 215867.2ms | ActiveRecord: 0.0ms | Allocations: 2087328)
+
+
+Completed 200 OK in 212414ms (Views: 212413.0ms | ActiveRecord: 0.0ms | Allocations: 1441778)
+
+

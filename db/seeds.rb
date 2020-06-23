@@ -11,7 +11,13 @@ List.destroy_all
 Card.destroy_all
 
 board1 = Board.create({title: "First board"})
-board2 = Board.create({title: "Second board"})
+
 
 list = List.create title: "First List", board: board1
-card = Card.create title: "First Card", list: list, description: "Hello Card", labels: ['blue', 'green'], due_date: 2.days.from_now
+list2 = List.create title: "Second List", board: board1
+
+Card.create title: "First Card", list: list, description: "Hello Card", labels: ['red', 'blue', 'green'], due_date: 1.days.from_now
+Card.create title: "Second Card", list: list, description: "Another Card", labels: ['green'], due_date: 2.days.from_now
+Card.create title: "Third Card", list: list2, description: "My Card", labels: ['blue', 'green', 'purple'], due_date: 2.days.from_now
+Card.create title: "Fourth Card", list: list2, description: "Your Card", labels: ['blue', 'green'], due_date: 3.days.from_now
+Card.create title: "Fifth Card", list: list2, description: "Everybody's Card", labels: ['blue', 'green', 'black'], due_date: 4.days.from_now
