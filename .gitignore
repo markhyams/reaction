@@ -1,4 +1,6 @@
 node_modules
 tmp
+log
+public/packs
 yarn.lock
 Gemfile.lock
