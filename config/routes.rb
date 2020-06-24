@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get '/ui/move_card_popover', to: 'ui#move_card_popover'
   get '/ui/copy_card_popover', to: 'ui#copy_card_popover'
   get '/ui', to: 'ui#index'
+
+  match '*path', to: 'home#index', via: :all
 end
