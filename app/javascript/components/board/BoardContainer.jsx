@@ -6,6 +6,7 @@ import Board from "./Board";
 // ownProps.match.params.id (string)
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state);
   return {
     board: state.boards.find((board) => board.id === +ownProps.match.params.id),
   };
@@ -25,8 +26,11 @@ class BoardContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props.board);
-    return <Board board={this.props.board} />;
+    if (this.props.board) {
+      return <Board board={this.props.board} />;
+    } else {
+      return null;
+    }
   }
 }
 
