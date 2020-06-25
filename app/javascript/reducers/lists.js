@@ -12,6 +12,8 @@ export default function lists(state = [], action) {
       });
 
       return excludedLists.concat(listsWithoutCards);
+    case "CREATE_LIST_SUCCESS":
+      return state.concat(action.list);
     default:
       return state;
   }
