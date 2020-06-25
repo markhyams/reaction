@@ -7,30 +7,30 @@ function Board(props) {
       <header>
         <ul>
           <li id="title">{props.board.title}</li>
-          <li class="star-icon icon"></li>
-          <li class="private private-icon icon">Private</li>
+          <li className="star-icon icon"></li>
+          <li className="private private-icon icon">Private</li>
         </ul>
-        <div class="menu">
-          <i class="more-icon sm-icon"></i>Show Menu
+        <div className="menu">
+          <i className="more-icon sm-icon"></i>Show Menu
         </div>
-        <div class="subscribed">
-          <i class="sub-icon sm-icon"></i>Subscribed
+        <div className="subscribed">
+          <i className="sub-icon sm-icon"></i>Subscribed
         </div>
       </header>
       <main>
-        <div id="list-container" class="list-container">
+        <div id="list-container" className="list-container">
           <ListsContainer boardId={props.board.id} />
-          <div id="new-list" class="new-list">
+          <div id="new-list" className="new-list">
             <span>Add a list...</span>
             <input type="text" placeholder="Add a list..." />
             <div>
-              <input type="submit" class="button" value="Save" />
-              <i class="x-icon icon"></i>
+              <input type="submit" className="button" value="Save" />
+              <i className="x-icon icon"></i>
             </div>
           </div>
         </div>
       </main>
-      <div class="menu-sidebar">
+      <div className="menu-sidebar">
         <div id="menu-main" class="main slide">
           <i class="back-icon icon"></i>
           <i class="x-icon icon"></i>

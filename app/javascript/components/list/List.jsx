@@ -1,37 +1,37 @@
 import React from "react";
-import CardsContainer from "../card/CardsContainer.jsx";
+import SummaryCardsContainer from "../card/SummaryCardsContainer.jsx";
 
 function List(props) {
   return (
-    <div class="list-wrapper">
-      <div class="list-background">
-        <div class="list">
-          <a class="more-icon sm-icon" href=""></a>
+    <div className="list-wrapper">
+      <div className="list-background">
+        <div className="list">
+          <a className="more-icon sm-icon" href=""></a>
           <div>
-            <p class="list-title">{props.title}</p>
+            <p className="list-title">{props.title}</p>
           </div>
-          <div class="add-dropdown add-top">
-            <div class="card"></div>
-            <a class="button">Add</a>
-            <i class="x-icon icon"></i>
-            <div class="add-options">
+          <div className="add-dropdown add-top">
+            <div className="card"></div>
+            <a className="button">Add</a>
+            <i className="x-icon icon"></i>
+            <div className="add-options">
               <span>...</span>
             </div>
           </div>
-          <CardsContainer listId={props.id} />
-          <div class="add-dropdown add-bottom">
-            <div class="card">
-              <div class="card-info"></div>
+          <SummaryCardsContainer listId={props.id} />
+          <div className="add-dropdown add-bottom">
+            <div className="card">
+              <div className="card-info"></div>
               <textarea name="add-card"></textarea>
-              <div class="members"></div>
+              <div className="members"></div>
             </div>
-            <a class="button">Add</a>
-            <i class="x-icon icon"></i>
-            <div class="add-options">
+            <a className="button">Add</a>
+            <i className="x-icon icon"></i>
+            <div className="add-options">
               <span>...</span>
             </div>
           </div>
-          <div class="add-card-toggle" data-position="bottom">
+          <div className="add-card-toggle" data-position="bottom">
             Add a card...
           </div>
         </div>

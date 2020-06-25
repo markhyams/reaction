@@ -1,4 +1,4 @@
-import Cards from "./Cards.jsx";
+import SummaryCards from "./SummaryCards.jsx";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state, ownProps) => {
@@ -7,4 +7,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Cards);
+export default connect(mapStateToProps, null)(SummaryCards);

@@ -15,29 +15,3 @@ export default function boards(state = [], action) {
       return state;
   }
 }
-
-// {
-//   title: "Board 1",
-//   id: 1,
-//   lists: [
-//     {id:1, title:"List 1", cards: [
-//       {title:" "Card1}
-//     ]}
-//   ]
-// }
-
-// state = {
-//   users: [],
-//   boards: [],
-//   lists: [],
-//   cards: [],
-//   comments: []
-// }
-// comments.filter(comment => comment.card_id === id);
-
-// // first filter to remove the board we got from the server
-// const excludedBoards = state.filter(board => board.id !== action.payload.board.id);
-
-// const { lists, ...boardWithoutLists} = action.payload.board;
-
-// return excludedBoards.concat(boardWithoutLists);
