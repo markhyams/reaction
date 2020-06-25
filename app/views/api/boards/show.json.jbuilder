@@ -12,6 +12,6 @@ json.lists(@board.lists) do |list|
     json.labels card.labels
     json.description card.description
     json.list_id card.list_id
-    json.board_id @board.id
+    json.board_id @board.id # TODO move that logic to Card model
   end
 end
