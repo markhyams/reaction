@@ -14,6 +14,14 @@ class List extends React.Component {
   };
 
   handleSubmitTitle = () => {
+    if (this.state.title.trim() === '') {
+      this.setState({
+        title: this.props.title,
+        editTitle: false, //this.props.title,
+      });
+      return;
+    }
+
     const updatedList = {
       list: { title: this.state.title },
     };
