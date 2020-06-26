@@ -1,11 +1,11 @@
-import React from "react";
-import List from "./List";
+import React from 'react';
+import ListContainer from './ListContainer';
 
 function Lists(props) {
   return (
     <div id="existing-lists" className="existing-lists">
-      {props.lists.map((list) => (
-        <List key={list.id} {...list} />
+      {props.lists.map(list => (
+        <ListContainer key={list.id} {...list} />
       ))}
     </div>
   );
