@@ -1,8 +1,8 @@
-import { connect } from "react-redux";
-import CreateList from "./CreateList";
-import * as actions from "../../actions/ListActions";
+import { connect } from 'react-redux';
+import CreateList from './CreateList';
+import * as actions from '../../actions/ListActions';
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     onAddList: (newList, callback) => {
       dispatch(actions.createList(newList, callback));
