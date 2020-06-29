@@ -1,14 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
-import * as actions from "../../actions/BoardActions";
-import Board from "./Board";
-
-// ownProps.match.params.id (string)
+import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/BoardActions';
+import Board from './Board';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   return {
-    board: state.boards.find((board) => board.id === +ownProps.match.params.id),
+    board: state.boards.find(
+      board => board.id === +ownProps.match.params.id,
+    ),
   };
 };
 
@@ -34,4 +33,7 @@ class BoardContainer extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoardContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BoardContainer);

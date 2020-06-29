@@ -1,6 +1,7 @@
-import React from "react";
-import ListsContainer from "../list/ListsContainer";
-import CreateListContainer from "../list/CreateListContainer";
+import React from 'react';
+import ListsContainer from '../list/ListsContainer';
+import CreateListContainer from '../list/CreateListContainer';
+import Card from '../card/Card';
 
 function Board(props) {
   return (

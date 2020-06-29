@@ -1,14 +1,21 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import TopNav from "./shared/TopNav";
-import BoardsDashboardContainer from "./dashboard/BoardsDashboardContainer";
-import BoardContainer from "./board/BoardContainer";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import TopNav from './shared/TopNav';
+import BoardsDashboardContainer from './dashboard/BoardsDashboardContainer';
+import BoardContainer from './board/BoardContainer';
+import { BOARDS_INDEX_URL } from '../constants/ApiRoutes';
+import CardContainer from './card/CardContainer';
 
 const Application = () => {
   return (
     <div>
       <TopNav />
-      <Route path="/boards/:id" exact component={BoardContainer} />
+      <Route
+        path="/(boards|cards)/:id"
+        exact
+        component={BoardContainer}
+      />
+      <Route path="/cards/:id" exact component={CardContainer} />
       <Route path="/" exact component={BoardsDashboardContainer} />
     </div>
   );
