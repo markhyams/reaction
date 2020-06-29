@@ -11,7 +11,7 @@ const Application = () => {
     <div>
       <TopNav />
       <Route
-        path="/(boards|cards)/:id"
+        path="/(boards|cards)/:id" // ADDED + line 18
         exact
         component={BoardContainer}
       />
