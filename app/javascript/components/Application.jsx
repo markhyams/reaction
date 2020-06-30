@@ -3,8 +3,6 @@ import { Route } from 'react-router-dom';
 import TopNav from './shared/TopNav';
 import BoardsDashboardContainer from './dashboard/BoardsDashboardContainer';
 import BoardContainer from './board/BoardContainer';
-import { BOARDS_INDEX_URL } from '../constants/ApiRoutes';
-import CardContainer from './card/CardContainer';
 
 const Application = () => {
   return (
