@@ -3,36 +3,57 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/BoardActions';
 import Board from './Board';
 
-const findId = (props, state) => {
-  if (/boards/.test(props.match.url)) {
-    return +props.match.params.id;
+const mapStateToProps = (state, ownProps) => {
+  let boardId, card;
+  if (/boards/.test(ownProps.match.url)) {
+    boardId = +ownProps.match.params.id;
   } else {
-    const card = state.cards.find(
-      card => card.id === +props.match.params.id,
+    card = state.cards.find(
+      card => card.id === +ownProps.match.params.id,
     );
-    return card.board_id;
+    if (card) {
+      boardId = card.board_id;
+    } else {
+      boardId = null;
+    }
+  }
+  if (boardId) {
+    return {
+      boardId: boardId,
+      board: state.boards.find(board => board.id === boardId),
+    };
+  } else {
+    return {
+      boardId: null,
+      board: null,
+    };
   }
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
-    board: state.boards.find(
-      board => board.id === findId(ownProps, state),
-    ),
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onFetchBoard: () => {
-      dispatch(actions.fetchBoard(ownProps.match.params.id));
+    onFetchBoard: boardId => {
+      dispatch(actions.fetchBoard(boardId));
     },
   };
 };
 
 class BoardContainer extends React.Component {
   componentDidMount() {
-    this.props.onFetchBoard();
+    if (!this.props.boardId) {
+      return null;
+    } else {
+      this.props.onFetchBoard(this.props.boardId);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.boardId !== prevProps.boardId &&
+      this.props.boardId
+    ) {
+      this.props.onFetchBoard(this.props.boardId);
+    }
   }
 
   render() {
