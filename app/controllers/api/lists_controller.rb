@@ -19,7 +19,7 @@ class Api::ListsController < ApplicationController
     @list = List.find(params[:id])
 
     if @list.update(list_params) 
-      render :update, status: :created
+      render :update, status: :accepted
     else
       @error = @list.errors.full_messages.join(', ')
       render 'api/shared/error', status: :unprocessable_entity
