@@ -1,10 +1,12 @@
 import React from 'react';
 import SummaryCardsContainer from '../card/SummaryCardsContainer.jsx';
+import CreateCardContainer from '../card/CreateCardContainer.jsx';
 
 class List extends React.Component {
   state = {
     editTitle: false,
     title: this.props.title,
+    createCardOpen: false,
   };
 
   handleChange = e => {
@@ -38,9 +40,32 @@ class List extends React.Component {
     }
   };
 
+  handleAddCardOpen = () => {
+    if (this.props.isAddCardFormOpen) {
+      return;
+    }
+
+    this.props.onToggleCardForm();
+    this.setState({
+      createCardOpen: true,
+    });
+  };
+
+  handleAddCardClose = () => {
+    this.props.onToggleCardForm();
+
+    this.setState({
+      createCardOpen: false,
+    });
+  };
+
   render() {
     return (
-      <div className="list-wrapper">
+      <div
+        className={`list-wrapper ${
+          this.state.createCardOpen ? 'add-dropdown-active' : ''
+        }`}
+      >
         <div className="list-background">
           <div className="list">
             <a className="more-icon sm-icon" href=""></a>
@@ -78,21 +103,12 @@ class List extends React.Component {
               </div>
             </div>
             <SummaryCardsContainer listId={this.props.id} />
-            <div className="add-dropdown add-bottom">
-              <div className="card">
-                <div className="card-info"></div>
-                <textarea name="add-card"></textarea>
-                <div className="members"></div>
-              </div>
-              <a className="button">Add</a>
-              <i className="x-icon icon"></i>
-              <div className="add-options">
-                <span>...</span>
-              </div>
-            </div>
-            <div className="add-card-toggle" data-position="bottom">
-              Add a card...
-            </div>
+            <CreateCardContainer
+              listId={this.props.id}
+              onAddCardOpen={this.handleAddCardOpen}
+              createCardOpen={this.state.createCardOpen}
+              onAddCardClose={this.handleAddCardClose}
+            />
           </div>
         </div>
       </div>
