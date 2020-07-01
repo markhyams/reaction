@@ -41,12 +41,19 @@ class List extends React.Component {
   };
 
   handleAddCardOpen = () => {
+    if (this.props.isAddCardFormOpen) {
+      return;
+    }
+
+    this.props.onToggleCardForm();
     this.setState({
       createCardOpen: true,
     });
   };
 
   handleAddCardClose = () => {
+    this.props.onToggleCardForm();
+
     this.setState({
       createCardOpen: false,
     });
