@@ -11,6 +11,27 @@ class CreateCard extends React.Component {
     });
   };
 
+  reset = () => {
+    this.setState({ title: '' });
+  };
+
+  handleSaveCard = e => {
+    e.preventDefault();
+    if (this.state.title.trim() === '') return;
+
+    const newCard = {
+      list_id: this.props.listId,
+      card: {
+        title: this.state.title,
+      },
+    };
+
+    this.props.onAddCard(newCard, () => {
+      this.reset();
+      this.props.onAddCardClose();
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -28,8 +49,13 @@ class CreateCard extends React.Component {
             ></textarea>
             <div className="members"></div>
           </div>
-          <a className="button">Add</a>
-          <i className="x-icon icon"></i>
+          <a onClick={this.handleSaveCard} className="button">
+            Add
+          </a>
+          <i
+            onClick={this.props.onAddCardClose}
+            className="x-icon icon"
+          ></i>
           <div className="add-options">
             <span>...</span>
           </div>

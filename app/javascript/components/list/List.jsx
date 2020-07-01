@@ -1,6 +1,6 @@
 import React from 'react';
 import SummaryCardsContainer from '../card/SummaryCardsContainer.jsx';
-import CreateCard from '../card/CreateCard.jsx';
+import CreateCardContainer from '../card/CreateCardContainer.jsx';
 
 class List extends React.Component {
   state = {
@@ -43,6 +43,12 @@ class List extends React.Component {
   handleAddCardOpen = () => {
     this.setState({
       createCardOpen: true,
+    });
+  };
+
+  handleAddCardClose = () => {
+    this.setState({
+      createCardOpen: false,
     });
   };
 
@@ -90,9 +96,11 @@ class List extends React.Component {
               </div>
             </div>
             <SummaryCardsContainer listId={this.props.id} />
-            <CreateCard
+            <CreateCardContainer
+              listId={this.props.id}
               onAddCardOpen={this.handleAddCardOpen}
               createCardOpen={this.state.createCardOpen}
+              onAddCardClose={this.handleAddCardClose}
             />
           </div>
         </div>
