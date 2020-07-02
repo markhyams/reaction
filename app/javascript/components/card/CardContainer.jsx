@@ -9,6 +9,9 @@ const mapStateToProps = (state, ownProps) => {
     card: state.cards.find(
       card => card.id === +ownProps.match.params.id,
     ),
+    comments: state.comments.filter(
+      comment => comment.card_id === +ownProps.match.params.id,
+    ),
   };
 };
 

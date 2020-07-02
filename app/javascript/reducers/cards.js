@@ -16,19 +16,11 @@ export default function cards(state = [], action) {
       return excludedCards.concat(cards);
 
     case 'FETCH_CARD_SUCCESS':
-      const found = state.find(card => card.id === action.card.id);
-
-      if (found) {
-        return state.map(card => {
-          if (card.id === action.card.id) {
-            return action.card;
-          } else {
-            return card;
-          }
-        });
-      } else {
-        return state.concat(action.card);
-      }
+      const allOtherCards = state.filter(
+        card => card.id !== action.card.id,
+      );
+      const { comments, ...cardWithoutComments } = action.card;
+      return allOtherCards.concat(cardWithoutComments);
 
     case 'CREATE_CARD_SUCCESS':
       return state.concat(action.card);
