@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EditCardTitleContainer from './EditCardTitleContainer';
+import EditCardDescriptionContainer from './EditCardDescriptionContainer';
 
 const Card = props => {
   return (
@@ -65,17 +66,7 @@ const Card = props => {
               </ul>
               <form className="description">
                 <p>Description</p>
-                <span id="description-edit" className="link">
-                  Edit
-                </span>
-                <p className="textarea-overlay">
-                  {props.card.description}
-                </p>
-                <p id="description-edit-options" className="hidden">
-                  You have unsaved edits on this field.{' '}
-                  <span className="link">View edits</span> -{' '}
-                  <span className="link">Discard</span>
-                </p>
+                <EditCardDescriptionContainer card={props.card} />
               </form>
             </li>
             <li className="comment-section">
