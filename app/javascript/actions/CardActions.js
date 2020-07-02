@@ -17,6 +17,14 @@ export function createCardSuccess(card) {
   return { type: types.CREATE_CARD_SUCCESS, card: card };
 }
 
+export function updateCardRequest() {
+  return { type: types.UPDATE_CARD_REQUEST };
+}
+
+export function updateCardSuccess(card) {
+  return { type: types.UPDATE_CARD_SUCCESS, card: card };
+}
+
 export function fetchCard(id) {
   return function(dispatch) {
     dispatch(fetchCardRequest());
@@ -32,6 +40,15 @@ export function createCard(card, callback) {
       if (callback) {
         callback(newCard);
       }
+    });
+  };
+}
+
+export function updateCard(card, id) {
+  return function(dispatch) {
+    dispatch(updateCardRequest());
+    apiClient.updateCard(card, id, updatedCard => {
+      dispatch(updateCardSuccess(updatedCard));
     });
   };
 }

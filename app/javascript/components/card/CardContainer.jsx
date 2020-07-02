@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onFetchCard: () => {
       dispatch(actions.fetchCard(ownProps.match.params.id));
     },
+    // TODO onUpdateCard:(){}
   };
 };
 
