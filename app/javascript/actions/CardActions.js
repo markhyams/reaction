@@ -44,11 +44,15 @@ export function createCard(card, callback) {
   };
 }
 
-export function updateCard(card, id) {
+export function updateCard(card, id, callback) {
   return function(dispatch) {
     dispatch(updateCardRequest());
     apiClient.updateCard(card, id, updatedCard => {
       dispatch(updateCardSuccess(updatedCard));
+
+      if (callback) {
+        callback();
+      }
     });
   };
 }
