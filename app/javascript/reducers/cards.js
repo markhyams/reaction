@@ -34,11 +34,13 @@ export default function cards(state = [], action) {
       return state.concat(action.card);
 
     case 'UPDATE_CARD_SUCCESS':
-      const otherCards = state.filter(
-        card => card.id !== action.card.id,
-      );
-      return [action.card, ...otherCards];
-
+      return state.map(card => {
+        if (card.id === action.card.id) {
+          return action.card;
+        } else {
+          return card;
+        }
+      });
     default:
       return state;
   }
