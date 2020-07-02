@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EditCardTitleContainer from './EditCardTitleContainer';
 
 const Card = props => {
   return (
@@ -11,12 +12,7 @@ const Card = props => {
         </Link>
         <header>
           <i className="card-icon icon .close-modal"></i>
-          <textarea
-            className="list-title"
-            style={{ height: 45 + 'px' }}
-          >
-            {props.card.title}
-          </textarea>
+          <EditCardTitleContainer card={props.card} />
           <p>
             in list{' '}
             <a className="link">Stuff to try (this is a list)</a>

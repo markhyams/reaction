@@ -14,6 +14,7 @@ export default function cards(state = [], action) {
       });
 
       return excludedCards.concat(cards);
+
     case 'FETCH_CARD_SUCCESS':
       const found = state.find(card => card.id === action.card.id);
 
@@ -28,8 +29,16 @@ export default function cards(state = [], action) {
       } else {
         return state.concat(action.card);
       }
+
     case 'CREATE_CARD_SUCCESS':
       return state.concat(action.card);
+
+    case 'UPDATE_CARD_SUCCESS':
+      const otherCards = state.filter(
+        card => card.id !== action.card.id,
+      );
+      return [action.card, ...otherCards];
+
     default:
       return state;
   }
