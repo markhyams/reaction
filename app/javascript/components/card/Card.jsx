@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import EditCardTitleContainer from './EditCardTitleContainer';
 import EditCardDescriptionContainer from './EditCardDescriptionContainer';
 import Comment from '../comment/Comment';
+import CreateCommentContainer from '../comment/CreateCommentContainer';
 
 const Card = props => {
   return (
@@ -76,28 +77,7 @@ const Card = props => {
                 <div className="member-container">
                   <div className="card-member">TP</div>
                 </div>
-                <div className="comment">
-                  <label>
-                    <textarea
-                      required=""
-                      rows="1"
-                      placeholder="Write a comment..."
-                    ></textarea>
-                    <div>
-                      <a className="light-button card-icon sm-icon"></a>
-                      <a className="light-button smiley-icon sm-icon"></a>
-                      <a className="light-button email-icon sm-icon"></a>
-                      <a className="light-button attachment-icon sm-icon"></a>
-                    </div>
-                    <div>
-                      <input
-                        type="submit"
-                        className="button not-implemented"
-                        value="Save"
-                      />
-                    </div>
-                  </label>
-                </div>
+                <CreateCommentContainer cardId={props.card.id} />
               </div>
             </li>
             <li className="activity-section">

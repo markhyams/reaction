@@ -8,6 +8,8 @@ export default function comments(state = [], action) {
       });
 
       return allOtherComments.concat(action.card.comments);
+    case 'CREATE_COMMENT_SUCCESS':
+      return state.concat(action.comment);
     default:
       return state;
   }
