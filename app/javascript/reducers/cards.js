@@ -33,6 +33,15 @@ export default function cards(state = [], action) {
           return card;
         }
       });
+    case 'CREATE_COMMENT_SUCCESS':
+      return state.map(card => {
+        if (card.id === action.comment.card_id) {
+          const count = card.comments_count + 1;
+          return Object.assign({}, card, { comments_count: count });
+        } else {
+          return card;
+        }
+      });
     default:
       return state;
   }

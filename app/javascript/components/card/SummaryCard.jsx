@@ -1,6 +1,23 @@
 import React from 'react';
+import moment from 'moment';
 
 import { Link } from 'react-router-dom';
+
+const dueClass = card => {
+  const diff = moment(card.dueDate).diff(new Date(), 'days');
+
+  if (card.completed) {
+    return 'completed';
+  } else if (diff < -1) {
+    return 'overdue';
+  } else if (diff < 0) {
+    return 'overdue-recent';
+  } else if (diff < 1) {
+    return 'due-soon';
+  } else {
+    return 'due-later';
+  }
+};
 
 function SummaryCard(props) {
   return (
@@ -18,11 +35,20 @@ function SummaryCard(props) {
             <p>{props.title}</p>
           </div>
           <div className="card-icons">
-            <i className="clock-icon sm-icon overdue-recent completed">
-              {props.due_date}
-            </i>
-            <i className="description-icon sm-icon"></i>
-            <i className="comment-icon sm-icon"></i>
+            {props.due_date && (
+              <i
+                className={`clock-icon sm-icon ${dueClass(props)}`} // TODO
+              >
+                {moment(props.due_date).format('MMM D')}
+              </i>
+            )}
+
+            {props.description && (
+              <i className="description-icon sm-icon"></i>
+            )}
+            {props.comments_count > 0 && (
+              <i className="comment-icon sm-icon"></i>
+            )}
           </div>
         </div>
       </div>
