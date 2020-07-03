@@ -20,7 +20,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onFetchCard: () => {
       dispatch(actions.fetchCard(ownProps.match.params.id));
     },
-    // TODO onUpdateCard:(){}
+    onToggle: updatedCard => {
+      dispatch(
+        actions.updateCard(updatedCard, ownProps.match.params.id),
+      );
+    },
   };
 };
 
@@ -32,7 +36,11 @@ class CardContainer extends React.Component {
   render() {
     if (this.props.card) {
       return (
-        <Card card={this.props.card} comments={this.props.comments} />
+        <Card
+          onToggle={this.props.onToggle}
+          card={this.props.card}
+          comments={this.props.comments}
+        />
       );
     } else {
       return null;

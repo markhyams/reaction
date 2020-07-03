@@ -24,6 +24,14 @@ export default function loading(state = false, action) {
       return true;
     case 'CREATE_CARD_SUCCESS':
       return false;
+    case 'UPDATE_CARD_REQUEST':
+      return true;
+    case 'UPDATE_CARD_SUCCESS':
+      return false;
+    case 'CREATE_COMMENT_REQUEST':
+      return true;
+    case 'CREATE_COMMENT_SUCCESS':
+      return false;
 
     default:
       return state;

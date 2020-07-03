@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-const LoadingSpinner = (props) => {
+const LoadingSpinner = props => {
   return (
     <div id="overlay">
       <div class="spinner"></div>
       <br />
-      Loading...
+      Mark is awesome!!!
     </div>
   );
 };
