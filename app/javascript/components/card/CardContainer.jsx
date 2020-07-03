@@ -31,7 +31,9 @@ class CardContainer extends React.Component {
 
   render() {
     if (this.props.card) {
-      return <Card card={this.props.card} />;
+      return (
+        <Card card={this.props.card} comments={this.props.comments} />
+      );
     } else {
       return null;
     }
