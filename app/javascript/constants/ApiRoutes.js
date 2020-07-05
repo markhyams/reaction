@@ -6,3 +6,4 @@ export const putListUrl = id => `/api/lists/${id}`;
 export const getCardUrl = id => `/api/cards/${id}`;
 export const CREATE_CARD_URL = `/api/cards`;
 export const putCardUrl = id => `/api/cards/${id}`;
+export const CREATE_COMMENT_URL = `/api/comments`;

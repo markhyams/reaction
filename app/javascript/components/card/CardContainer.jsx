@@ -9,6 +9,9 @@ const mapStateToProps = (state, ownProps) => {
     card: state.cards.find(
       card => card.id === +ownProps.match.params.id,
     ),
+    comments: state.comments.filter(
+      comment => comment.card_id === +ownProps.match.params.id,
+    ),
   };
 };
 
@@ -17,7 +20,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onFetchCard: () => {
       dispatch(actions.fetchCard(ownProps.match.params.id));
     },
-    // TODO onUpdateCard:(){}
+    onToggle: updatedCard => {
+      dispatch(
+        actions.updateCard(updatedCard, ownProps.match.params.id),
+      );
+    },
   };
 };
 
@@ -28,7 +35,13 @@ class CardContainer extends React.Component {
 
   render() {
     if (this.props.card) {
-      return <Card card={this.props.card} />;
+      return (
+        <Card
+          onToggle={this.props.onToggle}
+          card={this.props.card}
+          comments={this.props.comments}
+        />
+      );
     } else {
       return null;
     }

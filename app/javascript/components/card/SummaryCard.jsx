@@ -1,4 +1,6 @@
 import React from 'react';
+import moment from 'moment';
+import * as utilities from '../../lib/Utilities';
 
 import { Link } from 'react-router-dom';
 
@@ -18,11 +20,22 @@ function SummaryCard(props) {
             <p>{props.title}</p>
           </div>
           <div className="card-icons">
-            <i className="clock-icon sm-icon overdue-recent completed">
-              {props.due_date}
-            </i>
-            <i className="description-icon sm-icon"></i>
-            <i className="comment-icon sm-icon"></i>
+            {props.due_date && (
+              <i
+                className={`clock-icon sm-icon ${utilities.dueClass(
+                  props,
+                )}`} // TODO
+              >
+                {moment(props.due_date).format('MMM D')}
+              </i>
+            )}
+
+            {props.description && (
+              <i className="description-icon sm-icon"></i>
+            )}
+            {props.comments_count > 0 && (
+              <i className="comment-icon sm-icon"></i>
+            )}
           </div>
         </div>
       </div>
